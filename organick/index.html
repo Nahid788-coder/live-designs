@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Organick - Premium Organic Food & Agriculture Products. Fresh vegetables, fruits, and healthy organic products delivered to your door.">
+    <title>Organick - Organic Food & Agriculture</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&family=Yellowtail&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ============================================
+         NAVBAR
+         ============================================ -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.svg" alt="Organick" height="40">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"><span></span></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pages</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="services.html">Services</a></li>
+                            <li><a class="dropdown-item" href="service-single.html">Service Details</a></li>
+                            <li><a class="dropdown-item" href="portfolio.html">Portfolio</a></li>
+                            <li><a class="dropdown-item" href="portfolio-single.html">Portfolio Details</a></li>
+                            <li><a class="dropdown-item" href="team.html">Our Team</a></li>
+                            <li><a class="dropdown-item" href="404.html">404 Page</a></li>
+                            <li><a class="dropdown-item" href="licenses.html">Licenses</a></li>
+                            <li><a class="dropdown-item" href="changelog.html">Changelog</a></li>
+                            <li><a class="dropdown-item" href="password-protected.html">Password Protected</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="navbar-icons">
+                    <a href="#" class="search-toggle"><i class="bi bi-search"></i></a>
+                    <a href="#" class="open-order-history" title="Order History"><i class="bi bi-clock-history"></i></a>
+                    <a href="#" class="cart-icon">
+                        <i class="bi bi-cart3"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         SEARCH OVERLAY
+         ============================================ -->
+    <div class="search-overlay">
+        <div class="search-overlay-content">
+            <button class="close-search"><i class="bi bi-x-lg"></i></button>
+            <h3>Search Products</h3>
+            <form class="search-form" action="shop.html" method="GET">
+                <input type="text" name="search" id="searchInput" class="form-control" placeholder="Search for products..." autocomplete="off" autofocus>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-search"></i> Search
+                </button>
+            </form>
+
+            <!-- Search Results Container -->
+            <div class="search-results-container">
+                <div class="search-results-header">
+                    <h4>Search Results</h4>
+                    <span class="results-count"></span>
+                </div>
+
+                <!-- Results Slider -->
+                <div class="search-results-slider">
+                    <button class="slider-nav slider-prev" type="button">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <div class="search-results-track">
+                        <!-- Results will be injected here -->
+                    </div>
+                    <button class="slider-nav slider-next" type="button">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- No Results Message -->
+                <div class="no-results-message" style="display: none;">
+                    <i class="bi bi-search"></i>
+                    <p>No products found. Try a different search term.</p>
+                </div>
+            </div>
+
+            <div class="search-suggestions">
+                <p>Popular searches:</p>
+                <div class="search-tags">
+                    <a href="#" data-search="Vegetables">Vegetables</a>
+                    <a href="#" data-search="Fruits">Fruits</a>
+                    <a href="#" data-search="Organic">Organic</a>
+                    <a href="#" data-search="Fresh">Fresh</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <span class="script-font">100% Natural Food</span>
+                        <h1>Choose the Best Organic Food</h1>
+                        <p>Organick is a premium organic food store offering fresh, healthy, and sustainably sourced products for your family.</p>
+                        <a href="shop.html" class="btn btn-primary">
+                            Explore Now <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&h=500&fit=crop" alt="Fresh Organic Vegetables">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PROMO BANNERS
+         ============================================ -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="promo-banner">
+                        <span class="script-font">Natural!!</span>
+                        <h3>Get Garden Fresh Fruits</h3>
+                        <a href="shop.html" class="btn btn-secondary mt-3">
+                            Shop Now <i class="bi bi-arrow-right"></i>
+                        </a>
+                        <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=200&h=200&fit=crop" alt="Fresh Fruits" class="promo-banner-image">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="promo-banner dark">
+                        <span class="script-font">Offer!!</span>
+                        <h3>Get 10% Off on Vegetables</h3>
+                        <a href="shop.html" class="btn btn-primary mt-3">
+                            Shop Now <i class="bi bi-arrow-right"></i>
+                        </a>
+                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&h=200&fit=crop" alt="Fresh Vegetables" class="promo-banner-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <section class="about-section section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&h=500&fit=crop" alt="Organic Farm">
+                        <div class="about-badge">
+                            <h3>12+</h3>
+                            <p>Years of<br>Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <span class="script-font">About Us</span>
+                        <h2>We Believe in Working with Organic Products</h2>
+                        <p>At Organick, we are committed to providing the highest quality organic products. Our farm-fresh produce is grown without harmful pesticides, ensuring you and your family enjoy the best nature has to offer.</p>
+                        <p>We work directly with local farmers who share our passion for sustainable agriculture and environmental responsibility.</p>
+
+                        <div class="about-features">
+                            <div class="about-feature">
+                                <div class="about-feature-icon">
+                                    <i class="bi bi-check2-circle" style="font-size: 24px; color: var(--primary-green);"></i>
+                                </div>
+                                <div>
+                                    <h5>Organic Foods Only</h5>
+                                    <p>100% certified organic products</p>
+                                </div>
+                            </div>
+                            <div class="about-feature">
+                                <div class="about-feature-icon">
+                                    <i class="bi bi-award" style="font-size: 24px; color: var(--primary-green);"></i>
+                                </div>
+                                <div>
+                                    <h5>Quality Standards</h5>
+                                    <p>Premium quality guarantee</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="about.html" class="btn btn-secondary mt-4">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PRODUCTS SECTION
+         ============================================ -->
+    <section class="products-section section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="script-font">Categories</span>
+                <h2>Our Organic Products</h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge vegetable">Vegetable</span>
+                            <img src="https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=300&h=300&fit=crop" alt="Broccoli">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category">Vegetable</p>
+                            <h5 class="product-name"><a href="shop-single.html">Fresh Broccoli</a></h5>
+                            <div class="product-price">
+                                <span class="price-old">$24.00</span>
+                                <span class="price-new">$18.00</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge fruit">Fruit</span>
+                            <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=300&h=300&fit=crop" alt="Bananas">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category">Fruit</p>
+                            <h5 class="product-name"><a href="shop-single.html">Organic Bananas</a></h5>
+                            <div class="product-price">
+                                <span class="price-new">$12.00</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge nuts">Nuts</span>
+                            <img src="https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?w=300&h=300&fit=crop" alt="Almonds">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category">Nuts</p>
+                            <h5 class="product-name"><a href="shop-single.html">Raw Almonds</a></h5>
+                            <div class="product-price">
+                                <span class="price-old">$28.00</span>
+                                <span class="price-new">$22.00</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge fresh">Fresh</span>
+                            <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=300&h=300&fit=crop" alt="Eggs">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category">Fresh</p>
+                            <h5 class="product-name"><a href="shop-single.html">Farm Fresh Eggs</a></h5>
+                            <div class="product-price">
+                                <span class="price-new">$8.00</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge fruit">Fruit</span>
+                            <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=300&h=300&fit=crop" alt="Strawberries">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category">Fruit</p>
+                            <h5 class="product-name"><a href="shop-single.html">Fresh Strawberries</a></h5>
+                            <div class="product-price">
+                                <span class="price-new">$15.00</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge vegetable">Vegetable</span>
+                            <img src="https://images.unsplash.com/photo-1447175008436-054170c2e979?w=300&h=300&fit=crop" alt="Carrots">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category">Vegetable</p>
+                            <h5 class="product-name"><a href="shop-single.html">Organic Carrots</a></h5>
+                            <div class="product-price">
+                                <span class="price-old">$14.00</span>
+                                <span class="price-new">$10.00</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge health">Health</span>
+                            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=300&h=300&fit=crop" alt="Honey">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category">Health</p>
+                            <h5 class="product-name"><a href="shop-single.html">Pure Honey</a></h5>
+                            <div class="product-price">
+                                <span class="price-new">$25.00</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge fruit">Fruit</span>
+                            <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=300&h=300&fit=crop" alt="Apples">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category">Fruit</p>
+                            <h5 class="product-name"><a href="shop-single.html">Red Apples</a></h5>
+                            <div class="product-price">
+                                <span class="price-old">$16.00</span>
+                                <span class="price-new">$12.00</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="shop.html" class="btn btn-secondary">
+                    View All Products <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TESTIMONIALS SECTION
+         ============================================ -->
+    <section class="testimonials-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6">
+                    <div class="testimonial-content">
+                        <span class="script-font" style="color: var(--primary-green);">Testimonial</span>
+                        <h2>What Our Customers Say</h2>
+
+                        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="testimonial-card">
+                                        <p class="testimonial-text">"The quality of organic produce from Organick is exceptional. Fresh vegetables delivered right to my doorstep, and the taste is amazing. Highly recommend to anyone looking for healthy food options!"</p>
+                                        <div class="testimonial-author">
+                                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Sara Taylor">
+                                            <div class="testimonial-author-info">
+                                                <h5>Sara Taylor</h5>
+                                                <p>Consumer</p>
+                                            </div>
+                                            <div class="testimonial-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="testimonial-card">
+                                        <p class="testimonial-text">"I've been ordering from Organick for over a year now. Their commitment to organic farming and sustainable practices is commendable. The fruits are always fresh and delicious!"</p>
+                                        <div class="testimonial-author">
+                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="John Smith">
+                                            <div class="testimonial-author-info">
+                                                <h5>John Smith</h5>
+                                                <p>Regular Customer</p>
+                                            </div>
+                                            <div class="testimonial-rating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-indicators" style="position: relative; margin-top: 20px;">
+                                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" style="background-color: var(--primary-green);"></button>
+                                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" style="background-color: var(--primary-green);"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         STATS SECTION
+         ============================================ -->
+    <section class="stats-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="bi bi-people" style="font-size: 50px; color: var(--primary-green);"></i>
+                        </div>
+                        <h3 class="stat-number" data-count="5000">5000</h3>
+                        <p class="stat-label">Happy Customers</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="bi bi-box-seam" style="font-size: 50px; color: var(--primary-green);"></i>
+                        </div>
+                        <h3 class="stat-number" data-count="850">850</h3>
+                        <p class="stat-label">Products Available</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="bi bi-geo-alt" style="font-size: 50px; color: var(--primary-green);"></i>
+                        </div>
+                        <h3 class="stat-number" data-count="35">35</h3>
+                        <p class="stat-label">Store Locations</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="bi bi-award" style="font-size: 50px; color: var(--primary-green);"></i>
+                        </div>
+                        <h3 class="stat-number" data-count="25">25</h3>
+                        <p class="stat-label">Awards Won</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ORGANIC PRODUCTS SECTION
+         ============================================ -->
+    <section class="organic-section section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="organic-content">
+                        <span class="script-font">Eco Friendly</span>
+                        <h2>Ecologic & Organic Only Nature</h2>
+                        <p>We are committed to sustainable farming practices that protect our environment while delivering the freshest organic products to your table.</p>
+
+                        <ul class="organic-list">
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                <span>Certified organic produce grown without synthetic pesticides or fertilizers</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                <span>Supporting local farmers and sustainable agriculture practices</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                <span>Fresh from farm to your table within 24 hours of harvest</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                <span>Eco-friendly packaging to reduce environmental impact</span>
+                            </li>
+                        </ul>
+
+                        <a href="shop.html" class="btn btn-secondary mt-4">
+                            Shop Now <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="organic-image">
+                        <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&h=500&fit=crop" alt="Organic Products">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BLOG SECTION
+         ============================================ -->
+    <section class="section-padding bg-light-green">
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="script-font">News</span>
+                <h2>Discover Weekly Content</h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Blog Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&h=300&fit=crop" alt="Blog Post">
+                            <div class="blog-date">
+                                <span class="day">25</span>
+                                <span class="month">Nov</span>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="bi bi-person"></i> By Admin</span>
+                                <span><i class="bi bi-tag"></i> Organic</span>
+                            </div>
+                            <h4 class="blog-title">
+                                <a href="blog-single.html">The Benefits of Organic Food for Your Health</a>
+                            </h4>
+                            <p class="blog-excerpt">Discover how switching to organic food can improve your overall health and well-being...</p>
+                            <a href="blog-single.html" class="read-more">
+                                Read More <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=400&h=300&fit=crop" alt="Blog Post">
+                            <div class="blog-date">
+                                <span class="day">22</span>
+                                <span class="month">Nov</span>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="bi bi-person"></i> By Admin</span>
+                                <span><i class="bi bi-tag"></i> Farming</span>
+                            </div>
+                            <h4 class="blog-title">
+                                <a href="blog-single.html">Sustainable Farming Practices for the Future</a>
+                            </h4>
+                            <p class="blog-excerpt">Learn about modern sustainable farming techniques that are shaping the future of agriculture...</p>
+                            <a href="blog-single.html" class="read-more">
+                                Read More <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=300&fit=crop" alt="Blog Post">
+                            <div class="blog-date">
+                                <span class="day">18</span>
+                                <span class="month">Nov</span>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="bi bi-person"></i> By Admin</span>
+                                <span><i class="bi bi-tag"></i> Tips</span>
+                            </div>
+                            <h4 class="blog-title">
+                                <a href="blog-single.html">How to Store Organic Produce Properly</a>
+                            </h4>
+                            <p class="blog-excerpt">Tips and tricks for keeping your organic fruits and vegetables fresh for longer...</p>
+                            <a href="blog-single.html" class="read-more">
+                                Read More <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         NEWSLETTER SECTION
+         ============================================ -->
+    <section class="newsletter-section section-padding">
+        <div class="container">
+            <div class="newsletter-content">
+                <span class="script-font">Subscribe</span>
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get the latest updates on new products, special offers, and organic living tips delivered to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="form-control" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-secondary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about">
+                        <div class="footer-logo">
+                            <a href="index.html"><img src="images/logo-white.svg" alt="Organick" height="35"></a>
+                        </div>
+                        <p>Simply delicious organic food from farm to your table. We are committed to bringing you the freshest organic products.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="bi bi-facebook"></i></a>
+                            <a href="#"><i class="bi bi-twitter"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Help</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Order Status</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-title">Contact Us</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="bi bi-geo-alt"></i>
+                            <span>123 Organic Street, Farm City, FC 12345</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope"></i>
+                            <span>hello@organick.com</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2024</span> Organick. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         CART SIDEBAR
+         ============================================ -->
+    <div class="cart-overlay"></div>
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h4><i class="bi bi-cart3"></i> Your Cart</h4>
+            <button class="close-cart"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="cart-body">
+            <div class="cart-empty">
+                <i class="bi bi-cart-x"></i>
+                <p>Your cart is empty</p>
+                <a href="shop.html" class="btn btn-primary btn-sm">Shop Now</a>
+            </div>
+            <div class="cart-items">
+                <!-- Cart items will be added here dynamically -->
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <strong>$0.00</strong>
+            </div>
+            <button class="btn btn-primary w-100 btn-checkout" disabled>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- ============================================
+         CHECKOUT MODAL
+         ============================================ -->
+    <div class="checkout-modal">
+        <div class="checkout-content">
+            <button class="close-checkout"><i class="bi bi-x-lg"></i></button>
+
+            <!-- Step 1: Order Summary -->
+            <div class="checkout-step step-summary active">
+                <h3><i class="bi bi-receipt"></i> Order Summary</h3>
+                <div class="checkout-items">
+                    <!-- Items will be populated here -->
+                </div>
+                <div class="checkout-summary">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span class="subtotal-amount">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery</span>
+                        <span class="delivery-amount">$5.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span class="total-amount">$0.00</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary w-100 btn-continue-payment">
+                    Continue to Payment <i class="bi bi-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Step 2: Payment -->
+            <div class="checkout-step step-payment">
+                <h3><i class="bi bi-credit-card"></i> Payment Method</h3>
+                <div class="payment-options">
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="upi" checked>
+                        <div class="payment-option-content">
+                            <i class="bi bi-phone"></i>
+                            <div>
+                                <strong>UPI Payment</strong>
+                                <small>Pay using Google Pay, PhonePe, Paytm</small>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="qr">
+                        <div class="payment-option-content">
+                            <i class="bi bi-qr-code"></i>
+                            <div>
+                                <strong>Scan QR Code</strong>
+                                <small>Scan and pay with any UPI app</small>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="cod">
+                        <div class="payment-option-content">
+                            <i class="bi bi-cash-stack"></i>
+                            <div>
+                                <strong>Cash on Delivery</strong>
+                                <small>Pay when you receive your order</small>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- UPI Input -->
+                <div class="payment-detail upi-detail active">
+                    <label>Enter UPI ID</label>
+                    <input type="text" class="form-control" placeholder="yourname@upi" id="upiId">
+                </div>
+
+                <!-- QR Code -->
+                <div class="payment-detail qr-detail">
+                    <div class="qr-code-box">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=organick@upi" alt="QR Code">
+                        <p>Scan with any UPI app to pay</p>
+                    </div>
+                </div>
+
+                <!-- COD Info -->
+                <div class="payment-detail cod-detail">
+                    <div class="cod-info">
+                        <i class="bi bi-info-circle"></i>
+                        <p>Pay with cash when your order is delivered. Please keep exact change ready.</p>
+                    </div>
+                </div>
+
+                <div class="payment-total">
+                    <span>Amount to Pay:</span>
+                    <strong class="final-amount">$0.00</strong>
+                </div>
+
+                <button class="btn btn-primary w-100 btn-pay-now">
+                    <i class="bi bi-lock"></i> Pay Now
+                </button>
+                <button class="btn btn-outline-secondary w-100 mt-2 btn-back-summary">
+                    <i class="bi bi-arrow-left"></i> Back to Summary
+                </button>
+            </div>
+
+            <!-- Step 3: Success -->
+            <div class="checkout-step step-success">
+                <div class="success-animation">
+                    <i class="bi bi-check-circle-fill"></i>
+                </div>
+                <h3>Payment Successful!</h3>
+                <p>Thank you for your order. Your items will be delivered soon.</p>
+                <div class="order-info">
+                    <p><strong>Order ID:</strong> <span class="order-id">#ORG12345</span></p>
+                </div>
+                <div class="success-buttons">
+                    <button class="btn btn-primary btn-go-home">
+                        <i class="bi bi-house"></i> Back to Home
+                    </button>
+                    <button class="btn btn-outline-primary btn-view-orders">
+                        <i class="bi bi-clock-history"></i> View Order History
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         ORDER HISTORY MODAL
+         ============================================ -->
+    <div class="order-history-modal">
+        <div class="order-history-content">
+            <div class="order-history-header-modal">
+                <h3><i class="bi bi-clock-history"></i> Order History</h3>
+                <button class="close-order-history"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="order-history-body">
+                <div class="no-orders-message">
+                    <i class="bi bi-bag-x"></i>
+                    <p>No orders yet</p>
+                    <a href="shop.html" class="btn btn-primary btn-sm">Start Shopping</a>
+                </div>
+                <div class="order-history-list">
+                    <!-- Orders will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

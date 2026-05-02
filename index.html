@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nahid Husain — Live Design Showcase</title>
+<meta name="description" content="Live previews of web design projects by Nahid Husain." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #050510;
+  color: #f0f0ff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.bg-orbs { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.bg-orbs::before, .bg-orbs::after {
+  content: ''; position: absolute; border-radius: 50%; filter: blur(100px);
+}
+.bg-orbs::before {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(108,99,255,0.3), transparent 70%);
+  top: -100px; right: -100px;
+  animation: float 9s ease-in-out infinite;
+}
+.bg-orbs::after {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(255,101,132,0.25), transparent 70%);
+  bottom: -100px; left: -50px;
+  animation: float 11s ease-in-out infinite reverse;
+}
+@keyframes float {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(40px,-40px) scale(1.1); }
+}
+.wrap { position: relative; z-index: 1; max-width: 1300px; margin: 0 auto; padding: 80px 30px 60px; }
+header { text-align: center; margin-bottom: 70px; }
+.tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(108,99,255,0.1);
+  border: 1px solid rgba(108,99,255,0.3);
+  padding: 8px 18px; border-radius: 100px;
+  font-size: 12px; letter-spacing: 2px;
+  color: #6c63ff; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(40px, 6vw, 72px); font-weight: 800;
+  letter-spacing: -2px; line-height: 1.05; margin-bottom: 18px;
+}
+h1 span {
+  background: linear-gradient(135deg,#6c63ff,#ff6584,#43e97b);
+  background-size: 200%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+}
+@keyframes shine { to { background-position: -200% 0; } }
+header p { color: #8888aa; font-size: 17px; max-width: 580px; margin: 0 auto; line-height: 1.7; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 22px; }
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px; padding: 28px 26px;
+  text-decoration: none; color: inherit;
+  transition: transform 0.4s cubic-bezier(.22,1,.36,1), border-color 0.3s, background 0.3s, box-shadow 0.4s;
+  position: relative; overflow: hidden;
+  display: block;
+  opacity: 0; transform: translateY(30px);
+  animation: rise 0.7s cubic-bezier(.22,1,.36,1) forwards;
+}
+.card:nth-child(1){animation-delay:.05s}
+.card:nth-child(2){animation-delay:.12s}
+.card:nth-child(3){animation-delay:.19s}
+.card:nth-child(4){animation-delay:.26s}
+.card:nth-child(5){animation-delay:.33s}
+.card:nth-child(6){animation-delay:.40s}
+.card:nth-child(7){animation-delay:.47s}
+.card:nth-child(8){animation-delay:.54s}
+@keyframes rise { to { opacity: 1; transform: translateY(0); } }
+.card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: linear-gradient(90deg,#6c63ff,#ff6584);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s cubic-bezier(.22,1,.36,1);
+}
+.card:hover::before { transform: scaleX(1); }
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(108,99,255,0.4);
+  background: rgba(108,99,255,0.06);
+  box-shadow: 0 20px 50px rgba(108,99,255,0.15);
+}
+.card-tag {
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #6c63ff; margin-bottom: 10px; display: inline-block;
+}
+.card h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px; font-weight: 700; margin-bottom: 8px;
+}
+.card p { color: #8888aa; font-size: 13.5px; line-height: 1.6; margin-bottom: 16px; }
+.card-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: #f0f0ff;
+}
+.arrow { transition: transform 0.3s; }
+.card:hover .arrow { transform: translateX(4px); }
+footer { text-align: center; margin-top: 70px; color: #8888aa; font-size: 13px; }
+footer a { color: #6c63ff; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="bg-orbs"></div>
+<div class="wrap">
+  <header>
+    <div class="tag">Live Design Showcase</div>
+    <h1>Crafted by <span>Nahid Husain</span></h1>
+    <p>A curated collection of responsive, design-driven websites. Click any card to view the live preview.</p>
+  </header>
+
+  <div class="grid">
+    <a class="card" href="organick/" target="_blank" rel="noopener">
+      <span class="card-tag">Web Design</span>
+      <h2>Organick</h2>
+      <p>Premium organic food store with appetizing visuals and clean shopping flow.</p>
+      <span class="card-link">View Live <span class="arrow">→</span></span>
+    </a>
+    <a class="card" href="andia/" target="_blank" rel="noopener">
+      <span class="card-tag">Agency</span>
+      <h2>Andia</h2>
+      <p>Bold creative agency site with strong typographic grid and portfolio.</p>
+      <span class="card-link">View Live <span class="arrow">→</span></span>
+    </a>
+    <a class="card" href="babun/" target="_blank" rel="noopener">
+      <span class="card-tag">Business</span>
+      <h2>Babun</h2>
+      <p>Professional consulting site focused on growth and financial solutions.</p>
+      <span class="card-link">View Live <span class="arrow">→</span></span>
+    </a>
+    <a class="card" href="elegance/" target="_blank" rel="noopener">
+      <span class="card-tag">Web Design</span>
+      <h2>Elegance</h2>
+      <p>Awesome parallax-driven template with retina-ready, responsive layout.</p>
+      <span class="card-link">View Live <span class="arrow">→</span></span>
+    </a>
+    <a class="card" href="pizza/" target="_blank" rel="noopener">
+      <span class="card-tag">Business</span>
+      <h2>Pizza Restaurant</h2>
+      <p>Appetizing restaurant site featuring menu cards and table booking.</p>
+      <span class="card-link">View Live <span class="arrow">→</span></span>
+    </a>
+    <a class="card" href="mfurniro/" target="_blank" rel="noopener">
+      <span class="card-tag">E-Commerce</span>
+      <h2>MFurniro</h2>
+      <p>Modern furniture e-commerce experience with elegant browsing flow.</p>
+      <span class="card-link">View Live <span class="arrow">→</span></span>
+    </a>
+    <a class="card" href="nisuka/" target="_blank" rel="noopener">
+      <span class="card-tag">Business</span>
+      <h2>Nisuka</h2>
+      <p>Industrial company site with a strong product showcase and solutions page.</p>
+      <span class="card-link">View Live <span class="arrow">→</span></span>
+    </a>
+    <a class="card" href="studio-people/" target="_blank" rel="noopener">
+      <span class="card-tag">Agency</span>
+      <h2>Studio People</h2>
+      <p>Acoustics and interior design studio with elegant gallery and services.</p>
+      <span class="card-link">View Live <span class="arrow">→</span></span>
+    </a>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 <a href="https://github.com/Nahid788-coder" target="_blank">Nahid Husain</a> — All rights reserved.</p>
+  </footer>
+</div>
+</body>
+</html>
