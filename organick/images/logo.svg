@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="180" height="40" viewBox="0 0 180 40">
-  <g fill="none">
-    <!-- Leaf Icon -->
-    <path d="M8 32C8 32 10 20 20 12C30 4 38 8 38 8C38 8 36 20 26 28C16 36 8 32 8 32Z" fill="#7eb693"/>
-    <path d="M20 12C20 12 18 24 10 30" stroke="#274c5b" stroke-width="2" stroke-linecap="round"/>
-    <!-- Text -->
-    <text x="45" y="28" font-family="Roboto, Arial, sans-serif" font-size="24" font-weight="800" fill="#274c5b">Organick</text>
-  </g>
-</svg>

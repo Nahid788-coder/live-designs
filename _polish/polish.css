@@ -1,0 +1,240 @@
+/* =================================================================
+   Universal Polish Layer — applied to all 8 design previews
+   Adds: smooth scroll, font smoothing, hover lift, scroll reveal,
+         image fade-in, page loader, modern button transitions.
+   Non-destructive: only enhances existing styles, never overrides
+   layout or color schemes set by the original design.
+   ================================================================= */
+
+html { scroll-behavior: smooth; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Force everything to be slightly more polished — text and layout */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Smooth focus rings */
+:focus-visible {
+  outline: 2px solid #6c63ff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- IMAGES: smooth fade-in on load ---------- */
+img {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.5s ease;
+}
+img.__pl-loaded { opacity: 1; }
+
+/* Subtle hover lift on common image containers */
+img:hover { transform: translateY(-2px); }
+
+/* ---------- LINKS / BUTTONS: smooth transitions ---------- */
+a, button, input[type="submit"], .btn, [class*="button"], [class*="btn"] {
+  transition: transform 0.25s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.3s ease,
+              background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease,
+              opacity 0.3s ease !important;
+}
+
+a:hover, button:hover,
+input[type="submit"]:hover,
+.btn:hover, [class*="button"]:hover, [class*="btn"]:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- CARDS / SECTIONS subtle hover lift ---------- */
+[class*="card"]:hover,
+[class*="item"]:hover,
+[class*="box"]:hover,
+.feature:hover,
+.service:hover,
+.product:hover {
+  transition: transform 0.4s cubic-bezier(.22,1,.36,1), box-shadow 0.4s ease;
+}
+
+/* ---------- SCROLL REVEAL ---------- */
+.__pl-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(.22,1,.36,1),
+              transform 0.85s cubic-bezier(.22,1,.36,1);
+  will-change: opacity, transform;
+}
+.__pl-reveal.__pl-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- PAGE LOADER ---------- */
+.__pl-loader {
+  position: fixed;
+  inset: 0;
+  background: #0a0a14;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 22px;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.__pl-loader.__pl-gone {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.__pl-loader-spin {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(108, 99, 255, 0.18);
+  border-top-color: #6c63ff;
+  border-radius: 50%;
+  animation: __plSpin 0.9s linear infinite;
+}
+.__pl-loader-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: #6c63ff;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+@keyframes __plSpin { to { transform: rotate(360deg); } }
+
+/* ---------- SCROLL PROGRESS BAR ---------- */
+.__pl-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #6c63ff, #ff6584, #43e97b);
+  z-index: 99998;
+  transition: width 0.08s linear;
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.4);
+  pointer-events: none;
+}
+
+/* ---------- BACK-TO-TOP BUTTON ---------- */
+.__pl-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6c63ff, #ff6584);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 99997;
+  opacity: 0;
+  transform: translateY(60px) scale(0.7);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(.22,1,.36,1);
+  box-shadow: 0 10px 25px rgba(108, 99, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+.__pl-top.__pl-show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.__pl-top:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 15px 35px rgba(108, 99, 255, 0.55);
+}
+.__pl-top::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(108, 99, 255, 0.5);
+  animation: __plPulse 2.2s ease-out infinite;
+}
+@keyframes __plPulse {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  100% { transform: scale(1.55); opacity: 0;   }
+}
+
+/* ---------- VIEWED-FROM-PORTFOLIO BANNER (sticky) ---------- */
+.__pl-banner {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-80px);
+  background: rgba(10, 10, 20, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(108, 99, 255, 0.3);
+  color: #f0f0ff;
+  padding: 9px 18px;
+  border-radius: 100px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  z-index: 99996;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+  transition: transform 0.6s cubic-bezier(.22,1,.36,1);
+  text-decoration: none;
+}
+.__pl-banner.__pl-show { transform: translateX(-50%) translateY(0); }
+.__pl-banner:hover { color: #fff; }
+.__pl-banner-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #43e97b;
+  box-shadow: 0 0 8px #43e97b;
+  animation: __plBlink 2s ease infinite;
+}
+@keyframes __plBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.3); }
+}
+.__pl-banner-tag {
+  background: linear-gradient(135deg, #6c63ff, #ff6584);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* ---------- IMAGE PARALLAX HINT ON SCROLL ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .__pl-parallax {
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+  }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 600px) {
+  .__pl-top { width: 42px; height: 42px; bottom: 18px; right: 18px; }
+  .__pl-banner { font-size: 11px; padding: 8px 14px; top: 10px; }
+}
